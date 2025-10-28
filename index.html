@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Inventarios</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Dashboard de Inventarios</h1>
+    </header>
+
+    <!-- Tarjetas resumen -->
+    <section class="cards">
+        <div class="card">
+            <i class="fas fa-boxes"></i>
+            <h3>Total Productos</h3>
+            <p id="totalProductos">0</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-layer-group"></i>
+            <h3>Stock Total</h3>
+            <p id="stockTotal">0</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-dollar-sign"></i>
+            <h3>Valor UEPS</h3>
+            <p id="valorUEPS">0</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Valor PEPS</h3>
+            <p id="valorPEPS">0</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-calculator"></i>
+            <h3>Valor Promedio</h3>
+            <p id="valorPromedio">0</p>
+        </div>
+    </section>
+
+    <!-- Sección Agregar Productos -->
+    <section>
+        <h2>Agregar Producto</h2>
+        <label>Nombre del producto:</label>
+        <input type="text" id="nombreProducto">
+
+        <label>Cantidad:</label>
+        <input type="number" id="cantidadProducto">
+
+        <label>Costo Unitario:</label>
+        <input type="number" id="costoProducto" step="0.01">
+
+        <button onclick="agregarProducto()">Agregar Producto</button>
+    </section>
+
+    <!-- Sección Registrar Venta -->
+    <section>
+        <h2>Registrar Venta</h2>
+        <label>Producto:</label>
+        <select id="listaProductos"></select>
+
+        <label>Cantidad a vender:</label>
+        <input type="number" id="cantidadVenta">
+
+        <label>Precio de Venta Unitario:</label>
+        <input type="number" id="precioVenta" step="0.01">
+
+        <button onclick="realizarVenta()">Vender</button>
+    </section>
+
+    <!-- Tabla Inventario -->
+    <section>
+        <h2>Inventario</h2>
+        <button onclick="exportarHTML()">Exportar Inventario en HTML</button>
+        <div class="table-container">
+            <table id="tablaInventario">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Stock</th>
+                        <th>Costo Unitario</th>
+                        <th>Valor UEPS</th>
+                        <th>Valor PEPS</th>
+                        <th>Valor Promedio</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
